@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { UserDTO } from './dto';
 import Config from '../config/keys';
 import * as nano from 'nano';
 
@@ -11,7 +12,7 @@ export class AuthService {
     this.db = couch.use('user'); // Database name
   }
 
-  async registerUser() {
+  async registerUser(createUserDto: UserDTO) {
     return { msg: 'I have signed up' };
   }
 
